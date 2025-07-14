@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./configs/db');
 const userRoutes = require('./routes/userRoutes');
 const cookieParser = require('cookie-parser');
+const sessionRoutes=require('./routes/sessionRoutes')
 
 // Load environment variables
 dotenv.config();
@@ -35,6 +36,7 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Server is running' });
 });
 app.use('/api/auth', userRoutes);
+app.use('/api/session', sessionRoutes)
 
 // Connect to MongoDB
 connectDB();
