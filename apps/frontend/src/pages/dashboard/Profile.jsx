@@ -11,7 +11,6 @@ const Profile = () => {
       try {
         const data = await getCurrentUser();
         setUser(data);
-        console.log(data);
       } catch (err) {
         console.error('Error fetching user:', err);
         setError('Failed to load user data');

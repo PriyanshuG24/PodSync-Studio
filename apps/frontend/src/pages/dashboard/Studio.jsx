@@ -1,9 +1,19 @@
-import React from 'react'
+import { useState } from 'react';
+import PrePermissionSessionWindow from '../../components/Studio/PrePermissionSessionWindow';
+import StudioSessionWindow from '../../components/Studio/StudioSessionWindow';
 
 const Studio = () => {
-  return (
-    <div>Studio</div>
-  )
-}
+  const [joined, setJoined] = useState(false);
 
-export default Studio
+  return (
+    <div className="w-full h-full">
+      {!joined ? (
+        <PrePermissionSessionWindow onJoin={() => setJoined(true)} />
+      ) : (
+        <StudioSessionWindow />
+      )}
+    </div>
+  );
+};
+
+export default Studio;
